@@ -1,0 +1,88 @@
+﻿<Page
+    x:Class="TDBNP_FINAL.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TDBNP_FINAL"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <Storyboard x:Name="stb_play">
+            <DoubleAnimation Duration="00:00:00" Storyboard.TargetName="btn_play" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" To="0"/>
+            <DoubleAnimation Duration="00:00:00" Storyboard.TargetName="btn_play" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" To="0"/>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="btn_play" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="1.209"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="btn_play" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="1.323"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="stb_pausa">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="btn_pause" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="1.214"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="btn_pause" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="1.246"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="stb_detener">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="btn_stop" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="1.433"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="btn_stop" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="1.277"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="stb_cd">
+            <DoubleAnimation Duration="00:00:00" Storyboard.TargetName="cd" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" To="0"/>
+            <DoubleAnimation Duration="00:00:00" Storyboard.TargetName="cd" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" To="0"/>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="cd" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="361.828"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="stb_ondas">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ondas" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0.5"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="0.98"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Page.Resources>
+
+    <Grid>
+        <ListBox x:Name="lst_top" Margin="37,43,896,415"/>
+        <MediaElement x:Name="mdPlayer" HorizontalAlignment="Left" Height="285" Margin="528,211,0,0" VerticalAlignment="Top" Width="595" Source="/Assets/Media/Historia.mp4"/>
+        <ListBox x:Name="lstMedia" HorizontalAlignment="Left" Height="250" Margin="44,375,0,0" VerticalAlignment="Top" Width="416" SelectionChanged="lstMedia_SelectionChanged"/>
+        <Image x:Name="btn_play" HorizontalAlignment="Left" Height="130" Margin="545,55,0,0" VerticalAlignment="Top" Width="134" Source="/Images/play.png" RenderTransformOrigin="0.5,0.5" Tapped="btn_play_Tapped">
+            <Image.RenderTransform>
+                <CompositeTransform/>
+            </Image.RenderTransform>
+        </Image>
+        <Image x:Name="btn_pause" HorizontalAlignment="Left" Height="130" Margin="720,50,0,0" VerticalAlignment="Top" Width="140" Source="/Images/pausa.png" RenderTransformOrigin="0.5,0.5" Tapped="btn_pause_Tapped">
+            <Image.RenderTransform>
+                <CompositeTransform/>
+            </Image.RenderTransform>
+        </Image>
+        <Image x:Name="btn_stop" HorizontalAlignment="Left" Height="130" Margin="885,55,0,0" VerticalAlignment="Top" Width="134" Source="/Images/detener.png" RenderTransformOrigin="0.5,0.5" Tapped="btn_stop_Tapped">
+            <Image.RenderTransform>
+                <CompositeTransform/>
+            </Image.RenderTransform>
+        </Image>
+        <Image x:Name="ondas" HorizontalAlignment="Left" Height="184" Margin="640,520,0,0" VerticalAlignment="Top" Width="366" Source="/Images/6f08ce865655b45e1343124cda6c653c.gif" Opacity="0.01"/>
+        <Image x:Name="cd" HorizontalAlignment="Left" Height="120" Margin="1055,50,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.5,0.5" Source="/Images/disco.jpg">
+            <Image.RenderTransform>
+                <CompositeTransform/>
+            </Image.RenderTransform>
+        </Image>
+        <Button x:Name="btnTop" Content="Top music" Height="40" Margin="1079,585,0,0" VerticalAlignment="Top" Width="127" Click="btnTop_Click"/>
+
+    </Grid>
+</Page>
